@@ -1,18 +1,16 @@
 import json
 import urllib.request
-from yt_concate.settings import API_KEY  # 絕對路徑
-# 相對路徑 from .settings import API_KEY
+from yt_concate.settings import API_KEY  # 絕對路徑寫法
+# from .settings import API_KEY 相對路徑寫法
 
-print(API_KEY)
 CHANNEL_ID = "UCKSVUHI9rbbkXhvAXK-2uxA"  # 全域變數，命名時全大寫
 
-def get_all_video_in_channel(channel_id):
-    api_key = 'AIzaSyBQq-vYGX53_qZz6B7cYmOYJz7w56gyN-U'  # account:ugsinhonglin@gmail.com
 
+def get_all_video_in_channel(channel_id):
     base_video_url = 'https://www.youtube.com/watch?v='
     base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
 
-    first_url = base_search_url + 'key={}&channelId={}&part=snippet,id&order=date&maxResults=25'.format(api_key,
+    first_url = base_search_url + 'key={}&channelId={}&part=snippet,id&order=date&maxResults=25'.format(API_KEY,
                                                                                                         channel_id)
 
     video_links = []

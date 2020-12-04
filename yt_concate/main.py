@@ -1,12 +1,13 @@
 from yt_concate.pipeline.steps.get_video_list import GetVideoList
-from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.pipeline.steps.step import StepException
+from yt_concate.pipeline.pipeline import Pipeline
 
+#CHANNEL_ID = "UCKSVUHI9rbbkXhvAXK-2uxA"
+CHANNEL_ID ='UCIldsycnma5sHR1VRP38vhg'
 
-CHANNEL_ID = "UCKSVUHI9rbbkXhvAXK-2uxA"  # 全域變數，命名時全大寫
 def main():
     inputs = {
-        'channel_id': CHANNEL_ID
+        'channel_id': CHANNEL_ID,
     }
     steps = [
         GetVideoList(),
@@ -15,7 +16,5 @@ def main():
     p = Pipeline(steps)
     p.run(inputs)
 
-
 if __name__ == '__main__':
     main()
-

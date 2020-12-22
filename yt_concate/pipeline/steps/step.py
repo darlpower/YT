@@ -6,7 +6,7 @@ class Step(ABC):
     def __init__(self):
         pass
 
-    def process(self, data, inputs):
+    def process(self, data, inputs, utils):
         pass
 
 

@@ -1,3 +1,6 @@
+#自行設定不要上傳到github的部分
+donwloads/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

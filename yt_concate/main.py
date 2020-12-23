@@ -4,6 +4,7 @@ from yt_concate.pipeline.steps.initialize_yt import InitializeYT
 from yt_concate.pipeline.steps.download_caption import DownloadCaptions
 from yt_concate.pipeline.steps.read_caption import ReadCaption
 from yt_concate.pipeline.steps.search import Search
+from yt_concate.pipeline.steps.download_videos import DownloadVideos
 from yt_concate.pipeline.steps.postflight import Postflights
 from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.utils import Utils
@@ -24,6 +25,7 @@ def main():
         DownloadCaptions(),
         ReadCaption(),
         Search(),
+        DownloadVideos(),
         Postflights(),
     ]
 

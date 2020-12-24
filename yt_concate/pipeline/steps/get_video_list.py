@@ -6,11 +6,10 @@ from yt_concate.settings import API_KEY
 
 
 class GetVideoList(Step):
-    def process(self, data, inputs, utils):
+    def process(self, data, inputs, utils, logger):
         channel_id = inputs['channel_id']
-
         if utils.video_list_file_exists(channel_id):
-            print('Found existing video list file for channel id', channel_id)
+            logger.info(f'找到已存在字幕檔案清單，ID為:{channel_id}')
             return self.read_file(utils.get_video_list_filepath(channel_id))
 
 
@@ -34,8 +33,8 @@ class GetVideoList(Step):
                 url = first_url + '&pageToken={}'.format(next_page_token)
             except KeyError:
                 break
-        print(video_links)
-        print(len(video_links))
+        logger.info(f'共取得{len(video_links)}個字幕檔')
+        logger.info(f'字幕檔之影片網址如下{video_links}')
 
         self.write_to_file(video_links, utils.get_video_list_filepath(channel_id))
 

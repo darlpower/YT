@@ -5,7 +5,7 @@ from yt_concate.pipeline.steps.step import Step
 
 
 class EditVideo(Step):
-    def process(self, data, inputs, utils):
+    def process(self, data, inputs, utils, logger):
         clips = []
         for found in data:
             # print(found.time)
@@ -18,7 +18,7 @@ class EditVideo(Step):
 
         final_clip = concatenate_videoclips(clips)
         output_filepath = utils.get_output_filepath(inputs['channel_id'], inputs['search_word'])
-        print(output_filepath)
+        logger.info(f'存放完成影片位於{output_filepath}')
         final_clip.write_videofile(output_filepath)
 
     def parse_caption_time(self, caption_time):
